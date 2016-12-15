@@ -13,7 +13,7 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol
 
     var api: DarkSkyAPIController!
     
-    
+    @IBOutlet weak var currentTempLabel: UILabel!
 
     
     override func viewDidLoad()
@@ -36,7 +36,7 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol
     
     func didRecieveWeatherData(weatherData: [Weather])
     {
-    
+        currentTempLabel.text = weatherData[0].currentTempAsString()
     }
 
 

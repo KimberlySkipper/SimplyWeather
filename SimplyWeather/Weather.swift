@@ -26,4 +26,29 @@ struct Weather
         self.icon = icon
         self.precipProb = chanceOfRain
     }
+    
+    func currentTempAsString() -> String
+    {
+        return String(format: "%.0f", currentTemp)
+    }
+    
+    func apparentTempAsString() -> String
+    {
+        return String(format: "%.0f", apparentTemp)
+    }
+    
+    func minTempAsString() -> String
+    {
+        return String(format: "%.0f", tempMin)
+    }
+    
+    func maxTempAsString() -> String
+    {
+        return String(format: "%.0f", tempMax)
+    }
+    
+    func precipProbAsString() -> String
+    {
+        return String(format: "%.2f", precipProb)
+    }
 }
