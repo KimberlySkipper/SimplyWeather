@@ -15,7 +15,14 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
 
     var api: DarkSkyAPIController!
     let locationManager = CLLocationManager()
-    let iconView = SKYIconView(frame: CGRect(x: 8, y: 522, width: 60, height: 60))
+    let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 522, width: 60, height: 60))
+    let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 522, width: 60, height: 60))
+    let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 522, width: 60, height: 60))
+    let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 522, width: 60, height: 60))
+    let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 522, width: 60, height: 60))
+    
+    
+    
     
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var apparentTempLabel: UILabel!
@@ -32,14 +39,6 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
     @IBOutlet weak var day4MinTempLabel: UILabel!
     @IBOutlet weak var day5MaxTempLabel: UILabel!
     @IBOutlet weak var day5MinTempLabel: UILabel!
-    @IBOutlet weak var day1IconImage: UIImageView!
-    @IBOutlet weak var day2IconImage: UIImageView!
-    @IBOutlet weak var day3IconImage: UIImageView!
-    @IBOutlet weak var day4IconImage: UIImageView!
-    @IBOutlet weak var day5IconImage: UIImageView!
-    
-    
-    
     
     
     override func viewDidLoad()
@@ -49,20 +48,35 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         api = DarkSkyAPIController(delegate: self)
         configureLocationManager()
         
+        iconView1.setColor = UIColor.black
+        iconView1.backgroundColor = UIColor.white
+        iconView2.setColor = UIColor.black
+        iconView2.backgroundColor = UIColor.white
+        iconView3.setColor = UIColor.black
+        iconView3.backgroundColor = UIColor.white
+        iconView4.setColor = UIColor.black
+        iconView4.backgroundColor = UIColor.white
+        iconView5.setColor = UIColor.black
+        iconView5.backgroundColor = UIColor.white
+        self.view.addSubview(iconView1)
+        self.view.addSubview(iconView2)
+        self.view.addSubview(iconView3)
+        self.view.addSubview(iconView4)
+        self.view.addSubview(iconView5)
         
-        iconView.setColor = UIColor.black
-        iconView.backgroundColor = UIColor.white
-        self.view.addSubview(iconView)
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
        
-      
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     func didRecieveWeatherData(weatherData: [Weather])
     {
@@ -87,11 +101,12 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
             self.day5MaxTempLabel.text = weatherData[5].maxTempAsString()
             self.day5MinTempLabel.text = weatherData[5].minTempAsString()
 
-
-            self.iconView.setType = .rain
-
-            
-UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.iconView1.setType = weatherData[1].iconType
+            self.iconView2.setType = weatherData[2].iconType
+            self.iconView3.setType = weatherData[3].iconType
+            self.iconView4.setType = weatherData[4].iconType
+            self.iconView5.setType = weatherData[5].iconType
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
 
         

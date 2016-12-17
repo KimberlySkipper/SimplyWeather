@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sanford, FL-->
+        <!--Current Location-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="SimplyWeather" customModuleProvider="target" sceneMemberID="viewController">
@@ -112,13 +112,6 @@
                                 <color key="textColor" red="0.0" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ha6-nl-3ia">
-                                <rect key="frame" x="152" y="127" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Next 5 day forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOg-BL-bdX">
                                 <rect key="frame" x="94" y="424" width="196" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -147,22 +140,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EvM-GY-ddj">
-                                <rect key="frame" x="86" y="522" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAv-w9-C2i">
-                                <rect key="frame" x="161" y="522" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWe-oj-ttm">
-                                <rect key="frame" x="237" y="522" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHT-BP-2Hq">
-                                <rect key="frame" x="306" y="522" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7W-tt-0cC">
                                 <rect key="frame" x="137" y="209" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -170,25 +147,28 @@
                                 <color key="textColor" red="0.0" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ha6-nl-3ia">
+                                <rect key="frame" x="152" y="111" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.20000000000000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sanford, FL" id="0D9-Oe-y3S"/>
+                    <navigationItem key="navigationItem" title="Current Location" id="0D9-Oe-y3S"/>
                     <connections>
                         <outlet property="apparentTempLabel" destination="fdj-Nr-i1l" id="Rsq-gw-qIl"/>
                         <outlet property="currentTempLabel" destination="r7W-tt-0cC" id="Yew-Kk-kB2"/>
                         <outlet property="day1MaxTempLabel" destination="i8F-Tg-l7f" id="ohN-Y0-Qbd"/>
                         <outlet property="day1MinTempLabel" destination="8cN-rq-g5q" id="fpU-8I-BYq"/>
-                        <outlet property="day2IconImage" destination="EvM-GY-ddj" id="Ce9-Bo-0fh"/>
                         <outlet property="day2MaxTempLabel" destination="3pU-Jo-QJD" id="aEr-GX-rEE"/>
                         <outlet property="day2MinTempLabel" destination="WAX-em-vvU" id="ozk-yZ-ynY"/>
-                        <outlet property="day3IconImage" destination="iAv-w9-C2i" id="sXO-df-NjD"/>
                         <outlet property="day3MaxTempLabel" destination="Ssk-pC-2it" id="KFN-ar-gKe"/>
                         <outlet property="day3MinTempLabel" destination="ySh-p8-ofy" id="M0p-b6-iQz"/>
-                        <outlet property="day4IconImage" destination="EWe-oj-ttm" id="KsN-yG-9vj"/>
                         <outlet property="day4MaxTempLabel" destination="FRl-ia-ErO" id="Cp3-DT-jph"/>
                         <outlet property="day4MinTempLabel" destination="wwh-Mq-Shj" id="gc2-a1-zVo"/>
-                        <outlet property="day5IconImage" destination="CHT-BP-2Hq" id="0go-2c-5Dq"/>
                         <outlet property="day5MaxTempLabel" destination="Ybt-V1-WWp" id="1Si-tV-GtX"/>
                         <outlet property="day5MinTempLabel" destination="Z55-9p-Meg" id="ZfR-et-mlo"/>
                         <outlet property="maxTempLabel" destination="ujt-0d-pgk" id="VPc-Yt-Bxc"/>
@@ -198,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="295.50224887556226"/>
+            <point key="canvasLocation" x="1438" y="296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZXn-Cn-GfP">
