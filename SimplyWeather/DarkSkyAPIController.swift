@@ -43,14 +43,37 @@ class DarkSkyAPIController
             }
             if let mainDictionary = self.parseJSON(data!)
             {
+
+                if let moreWeatherInfo = mainDictionary["daily"] as? [String:Any]
+                {
+                    if let secondictionary = moreWeatherInfo["data"] as? [Any]
+                    {
+                        for dailyData in secondictionary
+                        {
+                            if let dailyDataAsDictionary = dailyData as? [String: Any]
+                            {
+                                let icon = dailyDataAsDictionary["icon"] as? String
+                                let precipProb = dailyDataAsDictionary["precipProbability"] as? Double
+                                let minTemp = dailyDataAsDictionary["temperatureMin"] as? Double
+                                let maxTemp = dailyDataAsDictionary["temperatureMax"] as? Double
+                                weather.append(Weather(0, 0, maxTemp!, minTemp!, icon!, precipProb!))
+                            }
+                        }
+                    }
+                
+                
+                }
                 if let weatherInfo = mainDictionary["currently"] as? [String: Any]
                 {
-                    if let currentTemp = weatherInfo["temperature"] as? Double
-                    {
-                    weather.append(Weather(currentTemp, 80, 80, 80, "", 80))
-                    self.delegate.didRecieveWeatherData(weatherData: weather)
-                    }
-                }
+                    let currentTemp = weatherInfo["temperature"] as? Double
+                    let apparentTemp = weatherInfo["apparentTemperature"] as? Double
+                    //set these properties as the first element of the weather array
+                    weather[0].apparentTemp = apparentTemp!
+                    weather[0].currentTemp = currentTemp!
+                    //weather.append(Weather(currentTemp!, apparentTemp!, 80, 80, "", 80))
+                                    
+                                }
+              self.delegate.didRecieveWeatherData(weatherData: weather)
             }
         })
         task.resume()

@@ -9,15 +9,23 @@
 import Foundation
 import CoreLocation
 
-class WeatherLocationManager
+class WeatherLocationManager: NSObject, CLLocationManagerDelegate
 {
+    //property
+    
+    //var location = CLLocation()
+    
     
     //takes in nothing and returns a city object.
-    func findCoordinates() -> City
-    {
-        //fake city need to get correct corrdinated for location
-        let city = City(latitude: 27.770068, longitude: -82.63642)
-        return city
-    }
+//    func findCoordinates() -> City
+//    {
+//        let city = City(latitude: Double(location.coordinate.latitude) , longitude: Double(location.coordinate.longitude))
+//        
+//        return city
+//    }
+    
+    
+            
+    
     
 }

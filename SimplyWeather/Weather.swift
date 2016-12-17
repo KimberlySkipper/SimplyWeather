@@ -10,8 +10,8 @@ import Foundation
 
 struct Weather
 {
-    let currentTemp: Double
-    let apparentTemp: Double
+    var currentTemp: Double
+    var apparentTemp: Double
     let tempMax: Double
     let tempMin: Double
     let icon: String
