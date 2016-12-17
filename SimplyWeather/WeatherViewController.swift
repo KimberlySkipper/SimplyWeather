@@ -21,6 +21,23 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var precipProbLabel: UILabel!
+    @IBOutlet weak var day1MaxTempLabel: UILabel!
+    @IBOutlet weak var day1MinTempLabel: UILabel!
+    @IBOutlet weak var day2MaxTempLabel: UILabel!
+    @IBOutlet weak var day2MinTempLabel: UILabel!
+    @IBOutlet weak var day3MaxTempLabel: UILabel!
+    @IBOutlet weak var day3MinTempLabel: UILabel!
+    @IBOutlet weak var day4MaxTempLabel: UILabel!
+    @IBOutlet weak var day4MinTempLabel: UILabel!
+    @IBOutlet weak var day5MaxTempLabel: UILabel!
+    @IBOutlet weak var day5MinTempLabel: UILabel!
+    @IBOutlet weak var day1Icon: UIImageView!
+    @IBOutlet weak var day2Icon: UIImageView!
+    @IBOutlet weak var day3Icon: UIImageView!
+    @IBOutlet weak var day4Icon: UIImageView!
+    @IBOutlet weak var day5Icon: UIImageView!
+    
+    
     
     
     
@@ -30,6 +47,10 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         
         api = DarkSkyAPIController(delegate: self)
         configureLocationManager()
+//        let iconView = SKYIconView(frame: frame)
+//        iconView.setType = .ClearDay
+//        iconView.setColor = UIColor.cyanColor()
+//        self.view.addSubview(iconView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +65,19 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         minTempLabel.text = weatherData[0].minTempAsString()
         maxTempLabel.text = weatherData[0].maxTempAsString()
         precipProbLabel.text = weatherData[0].precipProbAsString()
+        day1MaxTempLabel.text = weatherData[1].maxTempAsString()
+        day1MinTempLabel.text = weatherData[1].minTempAsString()
+        day2MaxTempLabel.text = weatherData[2].maxTempAsString()
+        day2MinTempLabel.text = weatherData[2].minTempAsString()
+        day3MaxTempLabel.text = weatherData[3].maxTempAsString()
+        day3MinTempLabel.text = weatherData[3].minTempAsString()
+        day4MaxTempLabel.text = weatherData[4].maxTempAsString()
+        day4MinTempLabel.text = weatherData[4].minTempAsString()
+        day5MaxTempLabel.text = weatherData[5].maxTempAsString()
+        day5MinTempLabel.text = weatherData[5].minTempAsString()
+        
+       // day1Icon.image = weatherData[1].rain
+        
     }
     func configureLocationManager()
     {
@@ -81,12 +115,6 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         let city = City(latitude: Double((locations.last?.coordinate.latitude)!) , longitude: Double((locations.last?.coordinate.longitude)!))
         api.searchDarkSkyFor(aCity: city)
         locationManager.stopUpdatingLocation()
-        
-        
     }
-    
-
-
-
 }
 

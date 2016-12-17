@@ -49,6 +49,8 @@ struct Weather
     
     func precipProbAsString() -> String
     {
-        return String(format: "%.2f", precipProb)
+        let percentPrecip = precipProb * 100
+        return String(format: "%.0f%%", percentPrecip)
     }
+    
 }
