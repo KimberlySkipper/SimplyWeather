@@ -147,24 +147,20 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K8G-hc-cIh">
-                                <rect key="frame" x="8" y="522" width="61" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EvM-GY-ddj">
-                                <rect key="frame" x="86" y="522" width="61" height="61"/>
+                                <rect key="frame" x="86" y="522" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAv-w9-C2i">
-                                <rect key="frame" x="161" y="522" width="61" height="61"/>
+                                <rect key="frame" x="161" y="522" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWe-oj-ttm">
-                                <rect key="frame" x="237" y="522" width="61" height="61"/>
+                                <rect key="frame" x="237" y="522" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHT-BP-2Hq">
-                                <rect key="frame" x="306" y="522" width="61" height="61"/>
+                                <rect key="frame" x="306" y="522" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7W-tt-0cC">
@@ -181,19 +177,18 @@
                     <connections>
                         <outlet property="apparentTempLabel" destination="fdj-Nr-i1l" id="Rsq-gw-qIl"/>
                         <outlet property="currentTempLabel" destination="r7W-tt-0cC" id="Yew-Kk-kB2"/>
-                        <outlet property="day1Icon" destination="K8G-hc-cIh" id="7hM-os-2tI"/>
                         <outlet property="day1MaxTempLabel" destination="i8F-Tg-l7f" id="ohN-Y0-Qbd"/>
                         <outlet property="day1MinTempLabel" destination="8cN-rq-g5q" id="fpU-8I-BYq"/>
-                        <outlet property="day2Icon" destination="EvM-GY-ddj" id="GyJ-9S-OKW"/>
+                        <outlet property="day2IconImage" destination="EvM-GY-ddj" id="Ce9-Bo-0fh"/>
                         <outlet property="day2MaxTempLabel" destination="3pU-Jo-QJD" id="aEr-GX-rEE"/>
                         <outlet property="day2MinTempLabel" destination="WAX-em-vvU" id="ozk-yZ-ynY"/>
-                        <outlet property="day3Icon" destination="iAv-w9-C2i" id="leW-DV-0E0"/>
+                        <outlet property="day3IconImage" destination="iAv-w9-C2i" id="sXO-df-NjD"/>
                         <outlet property="day3MaxTempLabel" destination="Ssk-pC-2it" id="KFN-ar-gKe"/>
                         <outlet property="day3MinTempLabel" destination="ySh-p8-ofy" id="M0p-b6-iQz"/>
-                        <outlet property="day4Icon" destination="EWe-oj-ttm" id="k9o-HR-poQ"/>
+                        <outlet property="day4IconImage" destination="EWe-oj-ttm" id="KsN-yG-9vj"/>
                         <outlet property="day4MaxTempLabel" destination="FRl-ia-ErO" id="Cp3-DT-jph"/>
                         <outlet property="day4MinTempLabel" destination="wwh-Mq-Shj" id="gc2-a1-zVo"/>
-                        <outlet property="day5Icon" destination="CHT-BP-2Hq" id="tFK-rb-oAo"/>
+                        <outlet property="day5IconImage" destination="CHT-BP-2Hq" id="0go-2c-5Dq"/>
                         <outlet property="day5MaxTempLabel" destination="Ybt-V1-WWp" id="1Si-tV-GtX"/>
                         <outlet property="day5MinTempLabel" destination="Z55-9p-Meg" id="ZfR-et-mlo"/>
                         <outlet property="maxTempLabel" destination="ujt-0d-pgk" id="VPc-Yt-Bxc"/>

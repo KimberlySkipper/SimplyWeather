@@ -15,6 +15,7 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
 
     var api: DarkSkyAPIController!
     let locationManager = CLLocationManager()
+    let iconView = SKYIconView(frame: CGRect(x: 8, y: 522, width: 60, height: 60))
     
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var apparentTempLabel: UILabel!
@@ -31,11 +32,11 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
     @IBOutlet weak var day4MinTempLabel: UILabel!
     @IBOutlet weak var day5MaxTempLabel: UILabel!
     @IBOutlet weak var day5MinTempLabel: UILabel!
-    @IBOutlet weak var day1Icon: UIImageView!
-    @IBOutlet weak var day2Icon: UIImageView!
-    @IBOutlet weak var day3Icon: UIImageView!
-    @IBOutlet weak var day4Icon: UIImageView!
-    @IBOutlet weak var day5Icon: UIImageView!
+    @IBOutlet weak var day1IconImage: UIImageView!
+    @IBOutlet weak var day2IconImage: UIImageView!
+    @IBOutlet weak var day3IconImage: UIImageView!
+    @IBOutlet weak var day4IconImage: UIImageView!
+    @IBOutlet weak var day5IconImage: UIImageView!
     
     
     
@@ -47,10 +48,15 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         
         api = DarkSkyAPIController(delegate: self)
         configureLocationManager()
-//        let iconView = SKYIconView(frame: frame)
-//        iconView.setType = .ClearDay
-//        iconView.setColor = UIColor.cyanColor()
-//        self.view.addSubview(iconView)
+        
+        
+        iconView.setColor = UIColor.black
+        iconView.backgroundColor = UIColor.white
+        self.view.addSubview(iconView)
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+       
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,23 +66,34 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
     
     func didRecieveWeatherData(weatherData: [Weather])
     {
-        currentTempLabel.text = weatherData[0].currentTempAsString()
-        apparentTempLabel.text = weatherData[0].apparentTempAsString()
-        minTempLabel.text = weatherData[0].minTempAsString()
-        maxTempLabel.text = weatherData[0].maxTempAsString()
-        precipProbLabel.text = weatherData[0].precipProbAsString()
-        day1MaxTempLabel.text = weatherData[1].maxTempAsString()
-        day1MinTempLabel.text = weatherData[1].minTempAsString()
-        day2MaxTempLabel.text = weatherData[2].maxTempAsString()
-        day2MinTempLabel.text = weatherData[2].minTempAsString()
-        day3MaxTempLabel.text = weatherData[3].maxTempAsString()
-        day3MinTempLabel.text = weatherData[3].minTempAsString()
-        day4MaxTempLabel.text = weatherData[4].maxTempAsString()
-        day4MinTempLabel.text = weatherData[4].minTempAsString()
-        day5MaxTempLabel.text = weatherData[5].maxTempAsString()
-        day5MinTempLabel.text = weatherData[5].minTempAsString()
-        
-       // day1Icon.image = weatherData[1].rain
+        //loads data in labels faster.
+        let queue = DispatchQueue.main
+        queue.async
+        {
+
+            self.currentTempLabel.text = weatherData[0].currentTempAsString()
+            self.apparentTempLabel.text = weatherData[0].apparentTempAsString()
+            self.minTempLabel.text = weatherData[0].minTempAsString()
+            self.maxTempLabel.text = weatherData[0].maxTempAsString()
+            self.precipProbLabel.text = weatherData[0].precipProbAsString()
+            self.day1MaxTempLabel.text = weatherData[1].maxTempAsString()
+            self.day1MinTempLabel.text = weatherData[1].minTempAsString()
+            self.day2MaxTempLabel.text = weatherData[2].maxTempAsString()
+            self.day2MinTempLabel.text = weatherData[2].minTempAsString()
+            self.day3MaxTempLabel.text = weatherData[3].maxTempAsString()
+            self.day3MinTempLabel.text = weatherData[3].minTempAsString()
+            self.day4MaxTempLabel.text = weatherData[4].maxTempAsString()
+            self.day4MinTempLabel.text = weatherData[4].minTempAsString()
+            self.day5MaxTempLabel.text = weatherData[5].maxTempAsString()
+            self.day5MinTempLabel.text = weatherData[5].minTempAsString()
+
+
+            self.iconView.setType = .rain
+
+            
+UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
+
         
     }
     func configureLocationManager()
