@@ -16,7 +16,6 @@
 		2C8BA4771E01E981001504A2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BA4761E01E981001504A2 /* Weather.swift */; };
 		2C8BA4791E01E9C1001504A2 /* DarkSkyAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BA4781E01E9C1001504A2 /* DarkSkyAPIController.swift */; };
 		2C8BA47D1E04DC3C001504A2 /* SKYIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BA47C1E04DC3C001504A2 /* SKYIconView.swift */; };
-		2C8BA47F1E05D44F001504A2 /* CitySearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BA47E1E05D44F001504A2 /* CitySearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		2C8BA4761E01E981001504A2 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		2C8BA4781E01E9C1001504A2 /* DarkSkyAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyAPIController.swift; sourceTree = "<group>"; };
 		2C8BA47C1E04DC3C001504A2 /* SKYIconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKYIconView.swift; sourceTree = "<group>"; };
-		2C8BA47E1E05D44F001504A2 /* CitySearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 				2C8BA4781E01E9C1001504A2 /* DarkSkyAPIController.swift */,
 				2C8BA4641E01E832001504A2 /* WeatherViewController.swift */,
 				2C8BA4661E01E832001504A2 /* Main.storyboard */,
-				2C8BA47E1E05D44F001504A2 /* CitySearchTableViewController.swift */,
 				2C8BA4691E01E832001504A2 /* Assets.xcassets */,
 				2C8BA46B1E01E832001504A2 /* LaunchScreen.storyboard */,
 				2C8BA46E1E01E832001504A2 /* Info.plist */,
@@ -153,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C8BA4771E01E981001504A2 /* Weather.swift in Sources */,
-				2C8BA47F1E05D44F001504A2 /* CitySearchTableViewController.swift in Sources */,
 				2C8BA4791E01E9C1001504A2 /* DarkSkyAPIController.swift in Sources */,
 				2C8BA4651E01E832001504A2 /* WeatherViewController.swift in Sources */,
 				2C8BA47D1E04DC3C001504A2 /* SKYIconView.swift in Sources */,

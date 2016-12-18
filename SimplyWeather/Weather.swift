@@ -57,22 +57,23 @@ struct Weather
     
     func currentTempAsString() -> String
     {
-        return String(format: "%.0f", currentTemp)
+        //shift option 8 to add degree symbol
+        return String(format: "%.0f°", currentTemp)
     }
     
     func apparentTempAsString() -> String
     {
-        return String(format: "%.0f", apparentTemp)
+        return String(format: "%.0f°", apparentTemp)
     }
     
     func minTempAsString() -> String
     {
-        return String(format: "%.0f", tempMin)
+        return String(format: "%.0f°", tempMin)
     }
     
     func maxTempAsString() -> String
     {
-        return String(format: "%.0f", tempMax)
+        return String(format: "%.0f°", tempMax)
     }
     
     func precipProbAsString() -> String

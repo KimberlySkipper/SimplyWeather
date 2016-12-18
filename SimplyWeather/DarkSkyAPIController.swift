@@ -17,6 +17,7 @@ class DarkSkyAPIController
     var delegate: DarkSkyAPIControllerProtocol
     init(delegate: DarkSkyAPIControllerProtocol)
     {
+        //referencing the delegate
         self.delegate = delegate
     }
     
@@ -42,6 +43,7 @@ class DarkSkyAPIController
                 {
                     if let secondictionary = moreWeatherInfo["data"] as? [Any]
                     {
+                        //build my arrays of weather data
                         for dailyData in secondictionary
                         {
                             if let dailyDataAsDictionary = dailyData as? [String: Any]
@@ -57,16 +59,17 @@ class DarkSkyAPIController
                 
                 
                 }
+                //set these properties as the first element of the weather array.  because that are not part of the weather array for hte dailys
                 if let weatherInfo = mainDictionary["currently"] as? [String: Any]
                 {
                     let currentTemp = weatherInfo["temperature"] as? Double
                     let apparentTemp = weatherInfo["apparentTemperature"] as? Double
-                    //set these properties as the first element of the weather array
                     weather[0].apparentTemp = apparentTemp!
                     weather[0].currentTemp = currentTemp!
-                    //weather.append(Weather(currentTemp!, apparentTemp!, 80, 80, "", 80))
+                    
                                     
-                                }
+                }
+                // this is where we are telling the UI that the weather data was recieved.
               self.delegate.didRecieveWeatherData(weatherData: weather)
             }
         })
