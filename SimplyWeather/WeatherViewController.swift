@@ -9,21 +9,18 @@
 import UIKit
 import CoreLocation
 import Foundation
+import MapKit
 
 class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLLocationManagerDelegate
 {
 
     var api: DarkSkyAPIController!
     let locationManager = CLLocationManager()
-    let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 522, width: 60, height: 60))
-    let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 522, width: 60, height: 60))
-    let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 522, width: 60, height: 60))
-    let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 522, width: 60, height: 60))
-    let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 522, width: 60, height: 60))
-    
-    
-    
-    
+    let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 530, width: 60, height: 60))
+    let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 530, width: 60, height: 60))
+    let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 530, width: 60, height: 60))
+    let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 530, width: 60, height: 60))
+    let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 530, width: 60, height: 60))
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var apparentTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
@@ -64,18 +61,16 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         self.view.addSubview(iconView4)
         self.view.addSubview(iconView5)
         
-
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-       
     }
     
     
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     func didRecieveWeatherData(weatherData: [Weather])
@@ -100,7 +95,6 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
             self.day4MinTempLabel.text = weatherData[4].minTempAsString()
             self.day5MaxTempLabel.text = weatherData[5].maxTempAsString()
             self.day5MinTempLabel.text = weatherData[5].minTempAsString()
-
             self.iconView1.setType = weatherData[1].iconType
             self.iconView2.setType = weatherData[2].iconType
             self.iconView3.setType = weatherData[3].iconType
@@ -108,9 +102,9 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
             self.iconView5.setType = weatherData[5].iconType
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
-
-        
     }
+    
+    
     func configureLocationManager()
     {
         let status = CLLocationManager.authorizationStatus()
@@ -128,6 +122,7 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
             }
         }
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
     {
@@ -147,6 +142,8 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         let city = City(latitude: Double((locations.last?.coordinate.latitude)!) , longitude: Double((locations.last?.coordinate.longitude)!))
         api.searchDarkSkyFor(aCity: city)
         locationManager.stopUpdatingLocation()
+        
     }
-}
+    
+}//end class
 
