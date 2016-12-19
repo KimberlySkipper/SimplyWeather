@@ -33,7 +33,7 @@ class DarkSkyAPIController
             print("Task completed")
             if error != nil
             {
-                // will print erroe based on language most commomly spoken in that area.
+                // will print error based on language most commomly spoken in that area.
                 print(error!.localizedDescription)
             }
             if let mainDictionary = self.parseJSON(data!)

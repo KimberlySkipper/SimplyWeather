@@ -15,11 +15,11 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
 
     var api: DarkSkyAPIController!
     let locationManager = CLLocationManager()
-    let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 525, width: 60, height: 60))
-    let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 525, width: 60, height: 60))
-    let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 525, width: 60, height: 60))
-    let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 525, width: 60, height: 60))
-    let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 525, width: 60, height: 60))
+    let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 515, width: 60, height: 60))
+    let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 515, width: 60, height: 60))
+    let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 515, width: 60, height: 60))
+    let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 515, width: 60, height: 60))
+    let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 515, width: 60, height: 60))
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var apparentTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
