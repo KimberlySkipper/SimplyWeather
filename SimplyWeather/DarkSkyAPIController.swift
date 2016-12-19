@@ -26,7 +26,7 @@ class DarkSkyAPIController
     {
         var weather = [Weather]()
         
-        let urlPath = "https://api.darksky.net/forecast/132557b00bf842d1a4174ede7cc30437/\(aCity.latitude),\(aCity.longitude)"
+        let urlPath = "https://api.darksky.net/forecast/(add-Dark-Sky-API-Key-here)/\(aCity.latitude),\(aCity.longitude)"
         let url = URL(string: urlPath)
         let session = URLSession.shared
         let task = session.dataTask(with: url!, completionHandler: {data, response, error -> Void in
