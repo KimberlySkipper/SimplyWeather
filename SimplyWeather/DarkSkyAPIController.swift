@@ -59,7 +59,7 @@ class DarkSkyAPIController
                 
                 
                 }
-                //set these properties as the first element of the weather array.  because that are not part of the weather array for hte dailys
+                //set these properties as the first element of the weather array.  because that are not part of the weather array for the dailys
                 if let weatherInfo = mainDictionary["currently"] as? [String: Any]
                 {
                     let currentTemp = weatherInfo["temperature"] as? Double

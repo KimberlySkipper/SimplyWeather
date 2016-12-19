@@ -26,7 +26,7 @@ struct Weather
         self.tempMin = minTemp
         self.iconString = iconString
         self.precipProb = chanceOfRain
-      
+        // retruned as a string in the weather data.  I used switch to convert the string into an iconType.
         switch iconString
         {
         case "clearDay":
@@ -81,5 +81,5 @@ struct Weather
         let percentPrecip = precipProb * 100
         return String(format: "%.0f%%", percentPrecip)
     }
-    
+    //change to generic function for temp.
 }
