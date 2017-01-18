@@ -10,16 +10,27 @@ import UIKit
 import CoreLocation
 import Foundation
 
-class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLLocationManagerDelegate
+protocol CityInNavBarDelegate
 {
+    func cityNameWasAssigned(aCity: City)
+}
 
+class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLLocationManagerDelegate, CityInNavBarDelegate
+{
+    @IBOutlet weak var icon1: SKYIconView!
+    @IBOutlet weak var icon2: SKYIconView!
+    @IBOutlet weak var icon3: SKYIconView!
+    @IBOutlet weak var icon4: SKYIconView!
+    @IBOutlet weak var icon5: SKYIconView!
+    
     var api: DarkSkyAPIController!
     let locationManager = CLLocationManager()
-    let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 515, width: 60, height: 60))
-    let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 515, width: 60, height: 60))
-    let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 515, width: 60, height: 60))
-    let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 515, width: 60, height: 60))
-    let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 515, width: 60, height: 60))
+    let geocoder = CLGeocoder()
+   // let iconView1 = SKYIconView(frame: CGRect(x: 8, y: 515, width: 60, height: 60))
+   // let iconView2 = SKYIconView(frame: CGRect(x: 86, y: 515, width: 60, height: 60))
+    //let iconView3 = SKYIconView(frame: CGRect(x: 161, y: 515, width: 60, height: 60))
+    //let iconView4 = SKYIconView(frame: CGRect(x: 237, y: 515, width: 60, height: 60))
+    //let iconView5 = SKYIconView(frame: CGRect(x: 306, y: 515, width: 60, height: 60))
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var apparentTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
@@ -42,23 +53,29 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
         super.viewDidLoad()
         
         api = DarkSkyAPIController(delegate: self)
+       // self.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(goToSearchPage)), animated: true)
         
-        iconView1.setColor = UIColor.black
-        iconView1.backgroundColor = UIColor.white
-        iconView2.setColor = UIColor.black
-        iconView2.backgroundColor = UIColor.white
-        iconView3.setColor = UIColor.black
-        iconView3.backgroundColor = UIColor.white
-        iconView4.setColor = UIColor.black
-        iconView4.backgroundColor = UIColor.white
-        iconView5.setColor = UIColor.black
-        iconView5.backgroundColor = UIColor.white
-        self.view.addSubview(iconView1)
-        self.view.addSubview(iconView2)
-        self.view.addSubview(iconView3)
-        self.view.addSubview(iconView4)
-        self.view.addSubview(iconView5)
-        
+        icon1.setColor = UIColor.black
+        icon1.backgroundColor = UIColor.white
+        icon1.play()
+        icon2.setColor = UIColor.black
+        icon2.backgroundColor = UIColor.white
+        icon2.play()
+        icon3.setColor = UIColor.black
+        icon3.backgroundColor = UIColor.white
+        icon3.play()
+        icon4.setColor = UIColor.black
+        icon4.backgroundColor = UIColor.white
+        icon4.play()
+        icon5.setColor = UIColor.black
+        icon5.backgroundColor = UIColor.white
+        icon5.play()
+        //self.view.addSubview(icon1)
+        //self.view.addSubview(iconView2)
+        //self.view.addSubview(iconView3)
+        //self.view.addSubview(iconView4)
+        //self.view.addSubview(iconView5)
+
         configureLocationManager()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
@@ -94,14 +111,29 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
             self.day4MinTempLabel.text = weatherData[4].minTempAsString()
             self.day5MaxTempLabel.text = weatherData[5].maxTempAsString()
             self.day5MinTempLabel.text = weatherData[5].minTempAsString()
-            self.iconView1.setType = weatherData[1].iconType
-            self.iconView2.setType = weatherData[2].iconType
-            self.iconView3.setType = weatherData[3].iconType
-            self.iconView4.setType = weatherData[4].iconType
-            self.iconView5.setType = weatherData[5].iconType
+            self.icon1.setType = weatherData[1].iconType
+            self.icon2.setType = weatherData[2].iconType
+            self.icon3.setType = weatherData[3].iconType
+            self.icon4.setType = weatherData[4].iconType
+            self.icon5.setType = weatherData[5].iconType
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
+    
+//    @IBAction func goToSearchPage (_ sender: UIBarButtonItem)
+//    {
+//        let nameVC = nameViewController()
+//
+//        newVC.delegate = self
+//
+//        self.navigationController?.pushViewController(nameFriendVC, animated: true)
+//    }
+    
+    func cityNameWasAssigned(aCity: City)
+    {
+        self.title = "\(aCity.cityName), \(aCity.stateName)"
+    }
+
     
     
     func configureLocationManager()
@@ -138,11 +170,30 @@ class WeatherViewController: UIViewController, DarkSkyAPIControllerProtocol, CLL
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-        let city = City(latitude: Double((locations.last?.coordinate.latitude)!) , longitude: Double((locations.last?.coordinate.longitude)!))
+        
+        let city = City(latitude: Double((locations.last?.coordinate.latitude)!) , longitude: Double((locations.last?.coordinate.longitude)!),
+                        cityName: "", stateName: "", zipCode: "")
         api.searchDarkSkyFor(aCity: city)
         locationManager.stopUpdatingLocation()
         
+        CLGeocoder().reverseGeocodeLocation((locations.last)!,  completionHandler: {
+        placemark, error in
+            
+            if error != nil
+            {
+                print(error?.localizedDescription ?? "Could not reverse geocode location.")
+            }
+            else
+            {
+                city.stateName = (placemark?.last?.administrativeArea)!
+                city.cityName = (placemark?.last?.locality)!
+                self.cityNameWasAssigned(aCity: city)
+                
+            }
+                
+                
+
+        })
     }
     
 }//end class
-

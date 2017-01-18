@@ -13,10 +13,18 @@ class City
 {
     let latitude: Double
     let longitude: Double
+    var cityName: String
+    var stateName: String
+    let zipCode: String
+    
 
-    init(latitude: Double, longitude: Double)
+    init(latitude: Double, longitude: Double, cityName: String, stateName: String, zipCode: String)
     {
         self.latitude = latitude
         self.longitude = longitude
+        self.cityName = cityName
+        self.stateName = stateName
+        self.zipCode = zipCode
     }
+    
 }
